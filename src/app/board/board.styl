@@ -1,0 +1,50 @@
+.list-block
+  background #e2e4e6
+  border-radius 3px
+  padding: 10px 20px
+  color rgb(77,77,77)
+.card i
+  opacity 0
+.card:hover i
+  opacity 1
+  cursor pointer
+.edit-card
+  display inline-block
+.card-content
+  display inline-block
+.edit-card-modal
+  width 100%
+  height 100%
+  position fixed
+  padding-top 50px
+  background rgba(0,0,0,.4)
+  top 0
+  left 0
+  z-index 99999
+.add-card
+  color #999
+  margin-top 10px
+  display block
+  width 100%
+  cursor pointer
+  &:hover
+    color #444
+    text-decoration none
+.card
+  background #fff
+  padding 3px 7px
+  border-radius 4px
+  position relative
+  margin 5px 0
+  i.fa-pencil
+    position absolute
+    right 15px
+    top 5px
+    text-shadow 0 0 5px #fff
+    background #fff
+  i.fa-close
+    position absolute
+    right 2px
+    top 5px
+    text-shadow 0 0 5px #fff
+    background #fff

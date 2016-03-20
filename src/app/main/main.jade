@@ -1,0 +1,12 @@
+.container
+  h1 Boards
+  .row
+    .col-md-3(ng-repeat="board in main.boards")
+      a.board(ng-href="/board/{{board.id}}") {{board.name}}
+    .col-md-3
+      button.btn.btn-primary(ng-show="!main.newBoardName" ng-click="main.newBoardName = 1") Create board
+      .create-board(ng-show="main.newBoardName")
+        textarea.form-control(ng-model="main.newBoardNameModel")
+        .btn-group
+          button.btn.btn-success(ng-click="main.createBoard(main.newBoardNameModel)") OK
+          button.btn.btn-danger(ng-click="main.newBoardNameModel = ''; main.newBoardName=0") Cancel

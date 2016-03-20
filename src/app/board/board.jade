@@ -1,0 +1,34 @@
+.container.card-list
+  a(href="/") << boards
+  h1 {{board.boardId}} board's lists
+  .col-md-3(ng-repeat="list in board.lists" ng-init="listIndex = $index")
+    .list-block
+      h4 {{list.header}}
+      
+      .card(ng-repeat="card in list.cards") 
+        .card-content {{card.content}}
+        i.fa.fa-pencil(ng-click="board.editCardModal(listIndex, $index)")
+        i.fa.fa-close(ng-click="board.removeCard(listIndex, $index)")
+
+      a.add-card(ng-show="!board.addCardTitle[$index]" ng-click="board.addCardTitle[$index] = 1") Add card...
+      .card-title(ng-show="board.addCardTitle[$index]")
+        textarea.form-control(ng-model="board.newCardTitle")
+        .btn-group
+          button.btn.btn-success(ng-click="board.addCard(board.newCardTitle, $index)") OK
+          button.btn.btn-danger(ng-click="board.addCardTitle[$index] = 0") Cancel
+  .col-md-3
+    button.btn.btn-primary(ng-show="!board.enterTitleShow" ng-click="board.enterTitleShow = 1") Add list
+    .list-title(ng-show="board.enterTitleShow")
+      textarea.form-control(ng-model="board.newListTitle")
+      .btn-group
+        button.btn.btn-success(ng-click="board.addList(board.newListTitle)") OK
+        button.btn.btn-danger(ng-click="board.enterTitleShow = 0") Cancel
+
+
+.edit-card-modal.container-fluid(ng-show="board.editCardModalShow")
+  .row
+    .col-md-3
+      textarea.form-control(ng-model="board.editingCard.content")
+      .btn-group
+        button.btn.btn-success(ng-click="board.saveCard(board.editingCard.content, board.editing.listIndex, board.editing.cardIndex)") OK
+        button.btn.btn-danger(ng-click="board.editCardModalShow = 0") Cancel
