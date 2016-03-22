@@ -2,7 +2,7 @@
 
 Для запуска нужны npm, gulp и bower.
 
-Перед сборкой нужно выполнить команды npm istall и bower install.
+Перед сборкой нужно выполнить команды npm install и bower install.
 
 gulp serve собирает проект, запускает тестовый livereload-сервер и открывает его в браузере. 
 
